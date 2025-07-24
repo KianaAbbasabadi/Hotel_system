@@ -9,5 +9,8 @@ class Room:
     def __repr__(self):
         return f"{self.__dict__}"
 
+    def to_tuple(self):
+        return (self.room_code, self.room_type, self.price_per_night, self.floor)
+
 
     #todo:getter/setter -->validation

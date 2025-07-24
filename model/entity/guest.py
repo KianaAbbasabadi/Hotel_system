@@ -11,6 +11,9 @@ class Guest:
     def __str__(self):
         return f"{self.__dict__}"
 
+    def to_tuple(self):
+        return (self.guest_code, self.name, self.family, self.age, self.phone_number)
+
 
 
    # todo:getter/setter--> validation

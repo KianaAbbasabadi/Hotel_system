@@ -9,6 +9,9 @@ class Reservation:
     def __str__(self):
         return f"{self.__dict__}"
 
+    def to_tuple(self):
+        return (self.reservation_code, self.check_in_date, self.nights, self.payment_status)
+
 
 
     #todo:getter/setter -->validation
