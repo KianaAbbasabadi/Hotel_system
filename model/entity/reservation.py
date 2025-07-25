@@ -1,5 +1,5 @@
 class Reservation:
-    def __init__(self, reservation_code, check_in_date, nights, payment_status,
+    def __init__(self, reservation_code, check_in_date , nights, payment_status,
                  room_number, guest_name, total_price,
                  special_requests, is_cancelled=False):
 
