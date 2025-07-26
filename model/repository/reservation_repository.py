@@ -1,4 +1,4 @@
-class ReservationRepository(object):
+class ReservationRepository:
     def save(self, reservation):
         pass
     def edited(self, reservation):
