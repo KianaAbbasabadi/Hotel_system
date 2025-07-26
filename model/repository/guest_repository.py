@@ -1,15 +1,52 @@
+import sqlite3
+
 class GuestRepository:
     def save(self, guest):
-        pass
+     connection = sqlite3.connect('hotel_db.sqlite')
+     cursor = connection.cursor()
+     cursor.execute("sql" , [data])
+     connection.commit()
+     cursor.close()
+     connection.close()
     def edited(self, guest):
-        pass
+        connection = sqlite3.connect('hotel_db.sqlite')
+        cursor = connection.cursor()
+        cursor.execute("sql", [data])
+        connection.commit()
+        cursor.close()
+        connection.close()
     def delete(self, code):
-        pass
+        connection = sqlite3.connect('hotel_db.sqlite')
+        cursor = connection.cursor()
+        cursor.execute("sql", [data])
+        connection.commit()
+        cursor.close()
+        connection.close()
     def find_all(self):
-        pass
+        connection = sqlite3.connect('hotel_db.sqlite')
+        cursor = connection.cursor()
+        cursor.execute("sql", [data])
+
+        cursor.close()
+        connection.close()
     def find_by_code(self, code):
-        pass
+        connection = sqlite3.connect('hotel_db.sqlite')
+        cursor = connection.cursor()
+        cursor.execute("sql", [data])
+
+        cursor.close()
+        connection.close()
     def find_by_name_family(self, name , family):
-        pass
+        connection = sqlite3.connect('hotel_db.sqlite')
+        cursor = connection.cursor()
+        cursor.execute("sql", [data])
+
+        cursor.close()
+        connection.close()
     def find_by_phone_number(self, phone_number):
-        pass
+        connection = sqlite3.connect('hotel_db.sqlite')
+        cursor = connection.cursor()
+        cursor.execute("sql", [data])
+
+        cursor.close()
+        connection.close()
