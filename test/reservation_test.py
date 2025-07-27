@@ -11,6 +11,6 @@ reservation_1 = Reservation(
     special_requests="نیاز به اتاق سیگار ممنوع",
     is_cancelled=False
 )
-
-print(reservation_1)
-print(reservation_1.to_tuple())
+#test passed
+#print(reservation_1)
+#print(reservation_1.to_tuple())
