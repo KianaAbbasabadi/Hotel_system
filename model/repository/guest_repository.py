@@ -15,7 +15,7 @@ class GuestRepository:
         self.connection.close()
 
     def save(self, guest):
-        try:
+
             self.connect()
             self.cursor.execute(
                 """insert into guests
@@ -24,11 +24,10 @@ class GuestRepository:
                 [guest.guest_code, guest.name, guest.family, guest.age, guest.phone_number, guest.birth_date]
             )
             self.disconnect(commit=True)
-        except Exception as e:
-            print(f"Error occurred: {e}")
-            self.disconnect()
 
-    def edited(self, guest):
+
+
+    def edite(self, guest):
         self.connect()
         self.cursor.execute("update guests set name=?, family=?, age=?, phone_number=? , birth_date=?  where guest_code=?",
                        [guest.name , guest.family , guest.age , guest.phone_number, guest.birth_date , guest.guest_code])
