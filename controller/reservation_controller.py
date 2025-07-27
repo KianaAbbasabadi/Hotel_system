@@ -1,6 +1,18 @@
+from model.entity.reservation import Reservation
+from model.repository.reservation_repository import ReservationRepository
+
+
+
 class ReservationController:
-    def save(self, reservation):
-        pass
+    def save(self, reservation_code, check_in_date , nights, payment_status,room_number, guest_name, total_price, special_requests, is_cancelled=False):
+        try:
+         reservation=Reservation( reservation_code, check_in_date , nights, payment_status, room_number, guest_name, total_price,special_requests, is_cancelled=False)
+         reservation_repository=ReservationRepository()
+         reservation_repository.save(reservation)
+         return True , f"reservation saved {reservation}"
+        except Exception as e:
+            return False, f"Error saving reservation {e}"
+
 
     def edite(self, reservation):
         pass
