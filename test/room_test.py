@@ -1,8 +1,39 @@
 from model.entity.room import Room
+from model.repository.room_repository import RoomRepository
 
-room_1 = Room(1, "big", 1200, 3, False, 2, True, "City")
-print(room_1)
+room_1 = Room(1, "big", 1200, 1, False, 4, True, "City")
+room_2 = Room(2, "small", 1400, 3, True, 2, True, "sea")
+#print(room_1)
+
+#test passed
+#room_tuple = room_1.to_tuple()
+#print(room_tuple)
+
+room_repo = RoomRepository()
+#test passed
+#room_repo.save(room_1)
+#room_repo.save(room_2)
+#test passed
+#room_repo.edite(room_1)
+#test passed
+#room_repo.delete(room_1)
+#test passed
+#print(room_repo.find_all())
+#test passed
+#print(room_repo.find_by_room_type("big"))
+#test passed
+#print(room_repo.find_by_code(1))
+#test passed
+#print(room_repo.find_by_floor(3))
+#test passed
+#print(room_repo.find_by_is_booked(True))
+#test passed
+#print(room_repo.find_by_max_occupancy(2))
+#test passed
+#print(room_repo.find_by_has_balcony(True))
+#test passed
+#print(room_repo.find_by_price_per_night(1200))
+#test passed
+#print(room_repo.find_by_view_type("sea"))
 
 
-room_tuple = room_1.to_tuple()
-print(room_tuple)

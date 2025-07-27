@@ -22,7 +22,7 @@ class RoomRepository:
         )
         self.disconnect(commit=True)
 
-    def edited(self, room):
+    def edite(self, room):
         self.connect()
         self.cursor.execute(
             "update rooms set room_type=?, price_per_night=?, floor=?, is_booked=?, max_occupancy=?, has_balcony=?, view_type=? where room_code=?",

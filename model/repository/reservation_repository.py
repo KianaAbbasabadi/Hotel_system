@@ -1,5 +1,5 @@
 import sqlite3
-from model.entity import reservation
+from model.entity.reservation import Reservation
 
 class ReservationRepository:
     def connect(self):
@@ -13,20 +13,29 @@ class ReservationRepository:
         self.connection.close()
 
     def save(self, reservation):
-        self.connect()
-        self.cursor.execute(
-            """insert into reservations
-                   (reservation_code, guest_name, room_number, check_in_date, nights, payment_status)
-            values (?, ?, ?, ?, ?, ?)""",
-            [reservation.reservation_code, reservation.guest_name, reservation.room_number, reservation.check_in_date, reservation.nights, reservation.payment_status]
-        )
-        self.disconnect(commit=True)
+        try:
+            self.connect()
+            self.cursor.execute(
+                """insert into reservations
+                   (reservation_code, guest_name, room_number, check_in_date, nights, payment_status, total_price, special_requests, is_canceled)
+                   values (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                [reservation.reservation_code, reservation.guest_name, reservation.room_number,
+                 reservation.check_in_date, reservation.nights, reservation.payment_status,
+                 reservation.total_price, reservation.special_requests, reservation.is_cancelled]
+            )
+            self.disconnect(commit=True)
+        except Exception as e:
+            print(f"Error occurred: {e}")
+            self.disconnect()
 
-    def edited(self, reservation):
+    def edite(self, reservation):
         self.connect()
         self.cursor.execute(
-            "update reservations set guest_name=?, room_number=?, check_in_date=?, nights=?, payment_status=? where reservation_code=?",
-            [reservation.guest_name, reservation.room_number, reservation.check_in_date, reservation.nights, reservation.payment_status, reservation.reservation_code]
+            """update reservations set guest_name=?, room_number=?, check_in_date=?, nights=?, payment_status=?, total_price=?, special_requests=?, is_canceled=?
+               where reservation_code=?""",
+            [reservation.guest_name, reservation.room_number, reservation.check_in_date, reservation.nights,
+             reservation.payment_status, reservation.total_price, reservation.special_requests, reservation.is_cancelled,
+             reservation.reservation_code]
         )
         self.disconnect(commit=True)
 
@@ -83,4 +92,18 @@ class ReservationRepository:
         reservations_list = self.cursor.fetchall()
         self.disconnect()
         return reservations_list
+    def find_by_total_price(self, total_price):
+        self.connect()
+        self.cursor.execute("select * from reservations where total_price=?", [total_price])
+        reservations_list = self.cursor.fetchall()
+        self.disconnect()
+        return reservations_list
+
+    def find_by_is_canceled(self, is_canceled):
+        self.connect()
+        self.cursor.execute("select * from reservations where is_canceled=?", [is_canceled])
+        reservations_list = self.cursor.fetchall()
+        self.disconnect()
+        return reservations_list
+
 
