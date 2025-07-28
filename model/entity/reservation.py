@@ -1,5 +1,4 @@
-from model.tool.validation import reservation_code_validator, check_in_date_validator, nights_validator, \
-    room_number_validator, guest_name_validator, total_price_validator, special_requests_validator
+from model.tool.validation import *
 
 
 class Reservation:
