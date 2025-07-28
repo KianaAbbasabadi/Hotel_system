@@ -1,18 +1,63 @@
 from tkinter import *
-from tkinter import ttk
+from tkinter import ttk, messagebox
 from PIL import Image, ImageTk
 from tkinter import messagebox as msg
 from controller.guest_controller import GuestController
 def save_guest():
-    pass
+    guest_controller = GuestController()
+    status , message=guest_controller.save(guest_code.get() , name.get() , family.get() , age.get() , phone_number.get() , birth_date.get())
+    if status:
+        messagebox.showinfo("Guest Saved" , message)
+        load_guest()
+        reset_guest()
+    else:
+        messagebox.showerror("Guest Not Saved" , message)
+
+
 def edite_guest():
-    pass
+    guest_controller = GuestController()
+    status , message=guest_controller.edite(guest_code.get() , name.get() , family.get() , age.get() , phone_number.get() , birth_date.get())
+    if status:
+        messagebox.showinfo("Guest Edited" , message)
+        load_guest()
+        reset_guest()
+    else:
+        messagebox.showerror("Guest Not Edited" , message)
+
 def delete_guest():
-    pass
+    guest_controller = GuestController()
+    status , message=guest_controller.delete(guest_code.get())
+    if status:
+        messagebox.showinfo("Guest Deleted" , message)
+        load_guest()
+        reset_guest()
+    else:
+        messagebox.showerror("Guest Not Deleted , enter the guest code please " , message )
 def reset_guest():
-    pass
+    guest_code.set(0)
+    name.set("")
+    family.set("")
+    age.set("")
+    phone_number.set("")
+    birth_date.set("")
+
 def search_guest():
     pass
+def load_guest():
+    guest_controller = GuestController()
+    status , result=guest_controller.find_all()
+    if status:
+        for row in guest_table.get_children():
+           guest_table.delete(row)
+        for guest in result:
+            guest_table.insert("","end",values=guest)
+
+    else:
+        messagebox.showerror("Guests Not Found , loas error" , result)
+
+
+
+
 
 window = Tk()
 window.title("Guest View")
