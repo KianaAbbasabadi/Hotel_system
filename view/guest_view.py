@@ -13,7 +13,7 @@ class GuestView:
         self.window.geometry("800x800")
         self.window.config(cursor="hand2", background="snow3")
 
-        img = Image.open('../model/repository/guest.png')
+        img = Image.open('guest.png')
         img = img.resize((250, 100))
         self.img = ImageTk.PhotoImage(img)
         my_label = Label(self.window, image=self.img)
