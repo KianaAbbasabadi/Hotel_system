@@ -4,7 +4,7 @@ from model.tool.validation import *
 class Reservation:
     def __init__(self, reservation_code, check_in_date, nights, payment_status,
                  room_number, guest_name, total_price,
-                 special_requests, is_cancelled=False):
+                 special_requests, is_cancelled):
 
         self.reservation_code = reservation_code
         self.check_in_date = check_in_date

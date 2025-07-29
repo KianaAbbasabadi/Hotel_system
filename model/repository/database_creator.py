@@ -29,7 +29,7 @@ def creat_database():
                        guest_name       INTEGER NOT NULL,
                        total_price      INTEGER NOT NULL,
                        special_requests text,
-                       is_canceled      tinyint default 0
+                       is_canceled      text    NOT NULL,
 
                    )
                    """)
