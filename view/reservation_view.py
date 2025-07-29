@@ -197,6 +197,5 @@ class ReservationView:
             messagebox.showwarning("Input Error", "Please enter a guest name or reservation code to search.")
 
 
-if __name__ == "__main__":
-    ReservationView()
+
 

@@ -90,7 +90,7 @@ def price_per_night_validator(price_per_night):
 
 def max_occupancy_validator(max_occupancy):
     if not (type(max_occupancy) == int and 0 < max_occupancy < 7):
-        raise ValueError("Max occupancy is invalid")
+        raise ValueError("Max occupancy is 6 ")
 
 
 
