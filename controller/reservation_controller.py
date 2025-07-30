@@ -4,9 +4,9 @@ from model.repository.reservation_repository import ReservationRepository
 
 
 class ReservationController:
-    def save(self, reservation_code, check_in_date , nights, payment_status,room_number, guest_name, total_price, special_requests, is_cancelled=False):
+    def save(self, reservation_code, check_in_date , nights, payment_status,room_number, guest_name, total_price, special_requests, is_cancelled):
         try:
-         reservation=Reservation( reservation_code, check_in_date , nights, payment_status, room_number, guest_name, total_price,special_requests, is_cancelled=False)
+         reservation=Reservation( reservation_code, check_in_date , nights, payment_status, room_number, guest_name, total_price,special_requests, is_cancelled)
          reservation_repository=ReservationRepository()
          reservation_repository.save(reservation)
          return True , f"reservation saved {reservation}"
@@ -14,9 +14,9 @@ class ReservationController:
             return False, f"Error saving reservation {e}"
 
 
-    def edite(self,  reservation_code, check_in_date , nights, payment_status,room_number, guest_name, total_price, special_requests, is_cancelled=False):
+    def edite(self,  reservation_code, check_in_date , nights, payment_status,room_number, guest_name, total_price, special_requests, is_cancelled):
         try:
-            reservation = Reservation(reservation_code, check_in_date, nights, payment_status, room_number, guest_name,total_price, special_requests, is_cancelled=False)
+            reservation = Reservation(reservation_code, check_in_date, nights, payment_status, room_number, guest_name,total_price, special_requests, is_cancelled)
             reservation_repository = ReservationRepository()
             reservation_repository.edite(reservation)
             return True , f"reservation edited {reservation}"
