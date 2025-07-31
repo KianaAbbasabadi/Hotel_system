@@ -22,37 +22,37 @@ class RoomView:
         my_label = Label(self.window, image=self.img)
         my_label.place(x=20, y=20)
 
-        Label(self.window, text="Room code").place(x=20, y=150)
+        Label(self.window, text="Room code" , background="snow3").place(x=20, y=150)
         self.room_code = IntVar()
         Entry(self.window, textvariable=self.room_code).place(x=150, y=150)
 
-        Label(self.window, text="Room type").place(x=20, y=200)
+        Label(self.window, text="Room type" , background="snow3").place(x=20, y=200)
         self.room_type = StringVar(value=room_type_list[0])
-        ttk.Combobox(self.window, textvariable=self.room_type, values=room_type_list, state="readonly").place(x=150, y=200)
+        ttk.Combobox(self.window, textvariable=self.room_type, values=room_type_list, state="readonly" , width=17).place(x=150, y=200)
 
-        Label(self.window, text="Price per night").place(x=20, y=250)
+        Label(self.window, text="Price per night" , background="snow3").place(x=20, y=250)
         self.price_per_night = IntVar()
         Entry(self.window, textvariable=self.price_per_night).place(x=150, y=250)
 
-        Label(self.window, text="Floor").place(x=20, y=300)
+        Label(self.window, text="Floor" , background="snow3").place(x=20, y=300)
         self.floor = StringVar(value=floor_list[0])
-        ttk.Combobox(self.window, textvariable=self.floor, values=floor_list, state="readonly").place(x=150, y=300)
+        ttk.Combobox(self.window, textvariable=self.floor, values=floor_list, state="readonly" , width=17).place(x=150, y=300)
 
-        Label(self.window, text="Booked?").place(x=20, y=350)
+        Label(self.window, text="Booked?" , background="snow3").place(x=20, y=350)
         self.is_booked = StringVar(value="No")
-        ttk.Combobox(self.window, textvariable=self.is_booked, values=["Yes", "No"], state="readonly").place(x=150, y=350)
+        ttk.Combobox(self.window, textvariable=self.is_booked, values=["Yes", "No"], state="readonly" , width=17).place(x=150, y=350)
 
-        Label(self.window, text="Max occupancy").place(x=20, y=400)
+        Label(self.window, text="Max occupancy" , background="snow3").place(x=20, y=400)
         self.max_occupancy = IntVar()
         Entry(self.window, textvariable=self.max_occupancy).place(x=150, y=400)
 
-        Label(self.window, text="Has balcony?").place(x=20, y=450)
+        Label(self.window, text="Has balcony?" , background="snow3").place(x=20, y=450)
         self.has_balcony = StringVar(value="Yes")
-        ttk.Combobox(self.window, textvariable=self.has_balcony, values=["Yes", "No"], state="readonly").place(x=150, y=450)
+        ttk.Combobox(self.window, textvariable=self.has_balcony, values=["Yes", "No"], state="readonly" , width=17).place(x=150, y=450)
 
-        Label(self.window, text="View type").place(x=20, y=500)
+        Label(self.window, text="View type" , background="snow3").place(x=20, y=500)
         self.view_type = StringVar(value=view_type_list[0])
-        ttk.Combobox(self.window, textvariable=self.view_type, values=view_type_list, state="readonly").place(x=150, y=500)
+        ttk.Combobox(self.window, textvariable=self.view_type, values=view_type_list, state="readonly" , width=17).place(x=150, y=500)
 
         self.room_table = ttk.Treeview(self.window, columns=[1, 2, 3, 4, 5, 6, 7, 8], show="headings")
         self.room_table.heading(1, text="Room code")
@@ -75,11 +75,11 @@ class RoomView:
 
         self.room_table.place(x=350, y=150)
 
-        Button(self.window, text="Save", width=18, command=self.save_room).place(x=20, y=650)
-        Button(self.window, text="Edit", width=18, command=self.edit_room).place(x=180, y=650)
-        Button(self.window, text="Delete", width=18, command=self.delete_room).place(x=20, y=680)
-        Button(self.window, text="Clear", width=18, command=self.reset_room).place(x=180, y=680)
-        Button(self.window, text="Search", width=41, command=self.search_room).place(x=20, y=710)
+        Button(self.window, text="Save", width=10, command=self.save_room).place(x=20, y=650)
+        Button(self.window, text="Edit", width=10, command=self.edit_room).place(x=190, y=650)
+        Button(self.window, text="Delete", width=10, command=self.delete_room).place(x=20, y=680)
+        Button(self.window, text="Clear", width=10, command=self.reset_room).place(x=190, y=680)
+        Button(self.window, text="Search", width=34, command=self.search_room).place(x=20, y=710)
 
         self.room_table.bind("<<TreeviewSelect>>", self.table_select_room)
         self.load_room()

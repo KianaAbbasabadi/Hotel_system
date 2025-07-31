@@ -22,43 +22,43 @@ class ReservationView:
         my_label = Label(self.window, image=self.img)
         my_label.place(x=20, y=20)
 
-        Label(self.window, text="Reservation code").place(x=20, y=150)
+        Label(self.window, text="Reservation code" , background="snow3").place(x=20, y=150)
         self.reservation_code = IntVar()
         Entry(self.window, textvariable=self.reservation_code).place(x=150, y=150)
 
-        Label(self.window, text="Check in date").place(x=20, y=200)
+        Label(self.window, text="Check in date" , background="snow3").place(x=20, y=200)
         self.check_in_date = StringVar()
         Entry(self.window, textvariable=self.check_in_date).place(x=150, y=200)
 
-        Label(self.window, text="Nights").place(x=20, y=250)
+        Label(self.window, text="Nights" , background="snow3").place(x=20, y=250)
         self.nights = IntVar()
         Entry(self.window, textvariable=self.nights).place(x=150, y=250)
 
-        Label(self.window, text="Payment status").place(x=20, y=300)
+        Label(self.window, text="Payment status" , background="snow3").place(x=20, y=300)
         self.payment_status = StringVar(value="pending")
         ttk.Combobox(self.window, textvariable=self.payment_status,
-                     values=payment_status_list, state="readonly").place(x=150, y=300)
+                     values=payment_status_list, state="readonly", width=17).place(x=150, y=300)
 
-        Label(self.window, text="Room number").place(x=20, y=350)
+        Label(self.window, text="Room number" , background="snow3").place(x=20, y=350)
         self.room_number = IntVar()
         Entry(self.window, textvariable=self.room_number).place(x=150, y=350)
 
-        Label(self.window, text="Guest name").place(x=20, y=400)
+        Label(self.window, text="Guest name" , background="snow3").place(x=20, y=400)
         self.guest_name = StringVar()
         Entry(self.window, textvariable=self.guest_name).place(x=150, y=400)
 
-        Label(self.window, text="Total price").place(x=20, y=450)
+        Label(self.window, text="Total price" , background="snow3").place(x=20, y=450)
         self.total_price = IntVar()
         Entry(self.window, textvariable=self.total_price).place(x=150, y=450)
 
-        Label(self.window, text="Special requests").place(x=20, y=500)
+        Label(self.window, text="Special requests" , background="snow3").place(x=20, y=500)
         self.special_requests = StringVar()
         Entry(self.window, textvariable=self.special_requests).place(x=150, y=500)
 
-        Label(self.window, text="Cancelled?").place(x=20, y=550)
+        Label(self.window, text="Cancelled?" , background="snow3").place(x=20, y=550)
         self.is_cancelled = StringVar(value="No")
         ttk.Combobox(self.window, textvariable=self.is_cancelled,
-                     values=is_cancelled_list, state="readonly").place(x=150, y=550)
+                     values=is_cancelled_list, state="readonly", width=17).place(x=150, y=550)
 
         self.reservation_table = ttk.Treeview(self.window,
                                               columns=[1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -84,11 +84,11 @@ class ReservationView:
         self.reservation_table.column(9, width=80, anchor=CENTER)
         self.reservation_table.place(x=350, y=150)
 
-        Button(self.window, text="Save", width=18, command=self.save_reservation).place(x=20, y=650)
-        Button(self.window, text="Edit", width=18, command=self.edit_reservation).place(x=180, y=650)
-        Button(self.window, text="Delete", width=18, command=self.delete_reservation).place(x=20, y=680)
-        Button(self.window, text="Clear", width=18, command=self.reset_reservation).place(x=180, y=680)
-        Button(self.window, text="Search", width=41, command=self.search_reservation).place(x=20, y=710)
+        Button(self.window, text="Save", width=10, command=self.save_reservation).place(x=20, y=650)
+        Button(self.window, text="Edit", width=10, command=self.edit_reservation).place(x=190, y=650)
+        Button(self.window, text="Delete", width=10, command=self.delete_reservation).place(x=20, y=680)
+        Button(self.window, text="Clear", width=10, command=self.reset_reservation).place(x=190, y=680)
+        Button(self.window, text="Search", width=34, command=self.search_reservation).place(x=20, y=710)
 
         self.reservation_table.bind("<<TreeviewSelect>>", self.table_selected)
         self.load_reservation()
@@ -195,6 +195,7 @@ class ReservationView:
                 messagebox.showerror("Reservation Not Found", result)
         else:
             messagebox.showwarning("Input Error", "Please enter a guest name or reservation code to search.")
+
 
 
 
