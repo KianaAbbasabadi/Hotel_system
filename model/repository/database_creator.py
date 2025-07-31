@@ -1,7 +1,7 @@
 import sqlite3
 def creat_database():
     # اتصال
-    connection = sqlite3.connect("hotel_db.sqlite")
+    connection = sqlite3.connect("./model/repository/hotel_db.sqlite")
     # ساخت جدول
     # عملیات ذخیره و ویرایش و حذف و انواع جست و جو و گزارش
     cursor = connection.cursor()
@@ -29,7 +29,7 @@ def creat_database():
                        guest_name       INTEGER NOT NULL,
                        total_price      INTEGER NOT NULL,
                        special_requests text,
-                       is_canceled      text    NOT NULL,
+                       is_canceled      text    NOT NULL
 
                    )
                    """)

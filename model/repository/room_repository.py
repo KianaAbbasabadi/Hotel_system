@@ -1,9 +1,11 @@
 import sqlite3
 from model.entity import room
 
+
 class RoomRepository:
     def connect(self):
-        self.connection = sqlite3.connect('hotel_db.sqlite')
+        self.connection = sqlite3.connect("./model/repository/hotel_db.sqlite")
+
         self.cursor = self.connection.cursor()
 
     def disconnect(self, commit=False):
@@ -16,9 +18,10 @@ class RoomRepository:
         self.connect()
         self.cursor.execute(
             """insert into rooms
-                   (room_code, room_type, price_per_night, floor, is_booked, max_occupancy, has_balcony, view_type)
-            values (?, ?, ?, ?, ?, ?, ?, ?)""",
-            [room.room_code, room.room_type, room.price_per_night, room.floor, room.is_booked, room.max_occupancy, room.has_balcony, room.view_type]
+               (room_code, room_type, price_per_night, floor, is_booked, max_occupancy, has_balcony, view_type)
+               values (?, ?, ?, ?, ?, ?, ?, ?)""",
+            [room.room_code, room.room_type, room.price_per_night, room.floor, room.is_booked, room.max_occupancy,
+             room.has_balcony, room.view_type]
         )
         self.disconnect(commit=True)
 
@@ -26,7 +29,8 @@ class RoomRepository:
         self.connect()
         self.cursor.execute(
             "update rooms set room_type=?, price_per_night=?, floor=?, is_booked=?, max_occupancy=?, has_balcony=?, view_type=? where room_code=?",
-            [room.room_type, room.price_per_night, room.floor, room.is_booked, room.max_occupancy, room.has_balcony, room.view_type, room.room_code]
+            [room.room_type, room.price_per_night, room.floor, room.is_booked, room.max_occupancy, room.has_balcony,
+             room.view_type, room.room_code]
         )
         self.disconnect(commit=True)
 

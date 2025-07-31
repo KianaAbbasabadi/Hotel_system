@@ -2,7 +2,7 @@ from model.entity.room import Room
 from model.repository.room_repository import RoomRepository
 from controller.room_controller import RoomController
 
-room_1 = Room(1, "big", 1200, 1, False, 4, True, "City")
+room_1 = Room(10, "big", 1200, 1, False, 4, True, "City")
 room_2 = Room(2, "small", 1400, 3, True, 2, True, "sea")
 #print(room_1)
 
@@ -10,9 +10,10 @@ room_2 = Room(2, "small", 1400, 3, True, 2, True, "sea")
 #room_tuple = room_1.to_tuple()
 #print(room_tuple)
 
-#room_repo = RoomRepository()
+room_repo = RoomRepository()
 #test passed
-#room_repo.save(room_1)
+room_repo.save(room_1)
+print("Saved")
 #room_repo.save(room_2)
 #test passed
 #room_repo.edite(room_1)

@@ -5,7 +5,8 @@ from model.entity import guest
 
 class GuestRepository:
     def connect(self):
-        self.connection = sqlite3.connect('hotel_db.sqlite')
+        self.connection = sqlite3.connect("./model/repository/hotel_db.sqlite")
+
         self.cursor = self.connection.cursor()
 
     def disconnect(self , commit=False):

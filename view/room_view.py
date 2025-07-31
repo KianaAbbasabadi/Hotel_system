@@ -176,8 +176,7 @@ class RoomView:
 
             if status:
                 self.room_table.delete(*self.room_table.get_children())
-                for room in result:
-                    self.room_table.insert("", "end", values=room)
+                self.room_table.insert("", "end", values=result)
             else:
                 messagebox.showerror("Room Not Found", result)
         else:
