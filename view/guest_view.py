@@ -6,9 +6,9 @@ from model.entity.guest import Guest
 
 
 class GuestView:
-    def __init__(self):
+    def __init__(self , parent):
         self.guest_controller = GuestController()
-        self.window = Tk()
+        self.window = Toplevel(parent)
         self.window.title("Guest View")
         self.window.geometry("800x800")
         self.window.config(cursor="hand2", background="snow3")
@@ -154,6 +154,11 @@ class GuestView:
                 messagebox.showerror("Guest Not Found", result)
         else:
             messagebox.showwarning("Input Error", "Please enter a name or family to search.")
+
+
+
+
+
 
 
 

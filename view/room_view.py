@@ -9,9 +9,9 @@ view_type_list = ["City", "Sea", "Garden", "Pool", "None"]
 floor_list = [1, 2, 3, 4, 5, 6]
 
 class RoomView:
-    def __init__(self):
+    def __init__(self , parent):
         self.room_controller = RoomController()
-        self.window = Tk()
+        self.window = Toplevel(parent)
         self.window.title("Room View")
         self.window.geometry("800x800")
         self.window.config(cursor="hand2", background="snow3")
@@ -181,4 +181,6 @@ class RoomView:
                 messagebox.showerror("Room Not Found", result)
         else:
             messagebox.showwarning("Input Error", "Please enter a room code or room type to search.")
+
+
 

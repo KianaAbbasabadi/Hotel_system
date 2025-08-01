@@ -9,9 +9,9 @@ is_cancelled_list = ["Yes", "No"]
 
 
 class ReservationView:
-    def __init__(self):
+    def __init__(self , parent):
         self.reservation_controller = ReservationController()
-        self.window = Tk()
+        self.window = Toplevel(parent)
         self.window.title("Reservation View")
         self.window.geometry("800x800")
         self.window.config(cursor="hand2", background="snow3")
@@ -21,6 +21,7 @@ class ReservationView:
         self.img = ImageTk.PhotoImage(img)
         my_label = Label(self.window, image=self.img)
         my_label.place(x=20, y=20)
+        my_label.image = self.img
 
         Label(self.window, text="Reservation code" , background="snow3").place(x=20, y=150)
         self.reservation_code = IntVar()

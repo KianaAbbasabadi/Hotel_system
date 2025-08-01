@@ -4,9 +4,9 @@ from PIL import Image, ImageTk
 from tkinter import messagebox
 
 
-from guest_app import GuestView
-from reservation_app import ReservationView
-from room_app import RoomView
+from guest_app import *
+from reservation_app import *
+from room_app import *
 
 class PanelView:
     def __init__(self):
@@ -35,36 +35,32 @@ class PanelView:
         reservation_button.place(x=20, y=385)
 
 
-        try:
-            img = Image.open("hotel.png")
-            img = img.resize((300, 300))
-            self.photo_img = ImageTk.PhotoImage(img) # Store as instance variable to prevent garbage collection
-            image_label = Label(self.window, image=self.photo_img)
-            image_label.place(x=300, y=100)
-        except FileNotFoundError:
-            messagebox.showerror("Image Error", "hotel.png not found. Please ensure the image file is in the correct directory.")
-        except Exception as e:
-            messagebox.showerror("Image Error", f"Error loading image: {e}")
 
+        img = Image.open("hotel.png")
+        img = img.resize((300, 300))
+        self.photo_img = ImageTk.PhotoImage(img)
+        image_label = Label(self.window, image=self.photo_img)
+        image_label.image = self.photo_img
+        image_label.place(x=300, y=100)
 
     def _open_room_management(self):
 
         try:
-            RoomView()
+            RoomView(self.window)
         except Exception as e:
             messagebox.showerror("Error", f"Could not open Room Management: {e}")
 
     def _open_guest_management(self):
 
         try:
-            GuestView()
+            GuestView(self.window)
         except Exception as e:
             messagebox.showerror("Error", f"Could not open Guest Management: {e}")
 
     def _open_reservation_management(self):
 
         try:
-            ReservationView()
+            ReservationView(self.window)
         except Exception as e:
             messagebox.showerror("Error", f"Could not open Reservation Management: {e}")
 
